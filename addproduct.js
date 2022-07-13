@@ -13,17 +13,17 @@ hideCont = (cont) => {
 
 selectFunc = () => {
     switch (sel.value) {
-        case "dvd":
+        case "DVD":
             showCont(dvd);
             hideCont(furniture);
             hideCont(book);
             break;
-        case "furniture":
+        case "Furniture":
             showCont(furniture);
             hideCont(dvd);
             hideCont(book);
             break;
-        case "book":
+        case "Book":
             showCont(book);
             hideCont(furniture);
             hideCont(dvd);

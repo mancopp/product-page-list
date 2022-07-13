@@ -13,7 +13,7 @@
     <header>
         <h2>Product Add</h2>
         <div class="btn-container">
-            <button form="product-form" type="submit" name="save">SAVE</button>
+            <button form="product_form" type="submit" name="Save">SAVE</button>
             <a href="./index.php"><button>CANCEL</button></a>
         </div>
     </header>
@@ -21,7 +21,7 @@
         <?php
         include "./inc/header.php";
         ?>
-        <form id="product-form" method="POST">
+        <form id="product_form" method="POST">
             <div class="form-container">
                 <table class="form-table">
                     <tr>
@@ -40,9 +40,9 @@
                         <td><label>Type Switcher</label></td>
                         <td>
                             <select name="sel-in" id="productType" onchange="selectFunc()" onload="selectFunc()">
-                                <option value="dvd">DVD</option>
-                                <option value="book">Book</option>
-                                <option value="furniture">Furniture</option>
+                                <option value="DVD">DVD</option>
+                                <option value="Book">Book</option>
+                                <option value="Furniture">Furniture</option>
                             </select>
                         </td>
                     </tr>

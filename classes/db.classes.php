@@ -2,7 +2,7 @@
 
 class DatabaseClass
 {
-    public function __construct($dbhost = "localhost", $dbname = "product_list", $username = "root", $password = "")
+    public function __construct($dbhost = "localhost", $dbname = "product_list", $username = "root", $password = "...")
     {
         try {
             $this->connection = mysqli_connect($dbhost, $username, $password, $dbname);
@@ -29,9 +29,9 @@ class DatabaseClass
             header("Location: index.php");
         }
 
-        if (isset($_POST["save"])) {
+        if (isset($_POST["Save"])) {
             $defaultAreValid = true;
-            if (empty($_POST["sku-in"]) || strlen($_POST["sku-in"]) != 8) {
+            if (empty($_POST["sku-in"])) {
                 echo "Invalid sku! ";
                 $defaultAreValid = false;
             }
@@ -46,21 +46,21 @@ class DatabaseClass
 
             if ($defaultAreValid) {
                 switch ($_POST["sel-in"]) {
-                    case "dvd":
+                    case "DVD":
                         if (empty($_POST["size-in"]) || !filter_input(INPUT_POST, "size-in", FILTER_VALIDATE_INT)) echo "Invalid size! ";
                         else {
                             $this->executeStatement("INSERT INTO `products` (`sku`, `name`, `price`, `type`, `size`) VALUES ('" . $_POST["sku-in"] . "', '" . $_POST["name-in"] . "', " . $_POST["price-in"] . ", 'dvd', " . $_POST["size-in"] . ")");
                             header("Location: index.php");
                         }
                         break;
-                    case "book":
+                    case "Book":
                         if (empty($_POST["weight-in"]) || !filter_input(INPUT_POST, "weight-in", FILTER_VALIDATE_INT)) echo "Invalid weight! ";
                         else {
                             $this->executeStatement("INSERT INTO `products` (`sku`, `name`, `price`, `type`, `weight`) VALUES ('" . $_POST["sku-in"] . "', '" . $_POST["name-in"] . "', " . $_POST["price-in"] . ", 'book', " . $_POST["weight-in"] . ")");
                             header("Location: index.php");
                         }
                         break;
-                    case "furniture":
+                    case "Furniture":
                         if (empty($_POST["height-in"]) || !filter_input(INPUT_POST, "height-in", FILTER_VALIDATE_FLOAT)) echo "Invalid height! ";
                         else if (empty($_POST["width-in"]) || !filter_input(INPUT_POST, "width-in", FILTER_VALIDATE_FLOAT)) echo "Invalid width! ";
                         else if (empty($_POST["length-in"]) || !filter_input(INPUT_POST, "length-in", FILTER_VALIDATE_FLOAT)) echo "Invalid length! ";
