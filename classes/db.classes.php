@@ -2,10 +2,10 @@
 
 class DatabaseClass
 {
-    public function __construct($dbhost = "localhost", $dbname = "product_list", $username = "root", $password = "...")
+    public function __construct($dbhost = "localhost", $dbname = "product_list", $username = "root", $password = "")
     {
         try {
-            $this->connection = mysqli_connect($dbhost, $username, $password, $dbname);
+            $this->connection = new mysqli($dbhost, $username, $password, $dbname);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -14,7 +14,7 @@ class DatabaseClass
     public function executeStatement($statement)
     {
         try {
-            return mysqli_query($this->connection, $statement);
+            return $this->connection->query($statement);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
