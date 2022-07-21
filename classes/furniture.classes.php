@@ -4,11 +4,10 @@ class Furniture extends Product
 {
     private $dimensions;
 
-
-    function __construct($sku, $name, $price, $dimensions)
+    function __construct($arr)
     {
-        parent::__construct($sku, $name, $price);
-        $this->dimensions = $dimensions;
+        parent::__construct($arr);
+        $this->dimensions = $arr["dimensions"];
     }
 
     public function render()

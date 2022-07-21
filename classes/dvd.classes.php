@@ -4,10 +4,10 @@ class Dvd extends Product
 {
     private $size;
 
-    function __construct($sku, $name, $price, $size)
+    function __construct($arr)
     {
-        parent::__construct($sku, $name, $price);
-        $this->size = $size;
+        parent::__construct($arr);
+        $this->size = $arr["size"];
     }
 
     public function render()

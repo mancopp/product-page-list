@@ -12,19 +12,16 @@ class Main
     function __construct($result)
     {
         while ($row = mysqli_fetch_assoc($result)) {
-            switch ($row["type"]) {
-                case "book":
-                    $this->products[] = new Book($row["sku"], $row["name"], $row["price"], $row["weight"]);
-                    break;
-                case "dvd":
-                    $this->products[] = new Dvd($row["sku"], $row["name"], $row["price"], $row["size"]);
-                    break;
-                case "furniture":
-                    $this->products[] = new Furniture($row["sku"], $row["name"], $row["price"], $row["dimensions"]);
-                    break;
-            }
-            echo "<br/>";
+            $this->products[] = $this->addRowObject($row);
         }
+    }
+
+    private function addRowObject($row)
+    {
+        $className = ucfirst($row["type"]);
+        $row = array_filter($row);
+        unset($row["type"]);
+        return new $className($row);
     }
 
     function displayProducts()

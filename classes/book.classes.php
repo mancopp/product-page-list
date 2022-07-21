@@ -4,10 +4,10 @@ class Book extends Product
 {
     private $weight;
 
-    function __construct($sku, $name, $price, $weight)
+    function __construct($arr)
     {
-        parent::__construct($sku, $name, $price);
-        $this->weight = $weight;
+        parent::__construct($arr);
+        $this->weight = $arr["weight"];
     }
 
     public function render()

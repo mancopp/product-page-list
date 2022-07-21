@@ -6,11 +6,11 @@ abstract class Product
     protected $name;
     protected $price;
 
-    function __construct($sku, $name, $price)
+    function __construct($arr)
     {
-        $this->sku = $sku;
-        $this->name = $name;
-        $this->price = $price;
+        $this->sku = $arr["sku"];
+        $this->name = $arr["name"];
+        $this->price = $arr["price"];
     }
 
     public function render()
