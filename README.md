@@ -1,4 +1,3 @@
-# product-page-list
-User can delete, read and add products with different properties. Project created with OOP approach.
+# Currently hosted [here](http://marianhasyak.ct8.pl/)
 
-Web page is currently hosted [here](http://marianhasyak.ct8.pl/).
+User can delete, read and add products with different properties. Project created with OOP approach.
